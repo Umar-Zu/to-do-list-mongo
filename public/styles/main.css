@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&display=swap');
+
+html {
+  font-family: 'helvetica neue';
+  background-image: url('../imgs/pinepine.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  /* background: linear-gradient(to bottom right, #aeb1c0 50%, #8800ff 100%); */
+  /* font-family: Montserrat, roboto, Arial, Helvetica, sans-serif; */
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 95vh;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.left {
+  margin-left: 10px;
+}
+
+.middle {
+  color: #fff;
+}
+
+.right {
+  margin-right: 10px;
+}
+
+.iconHeader {
+  margin-right: 5px;
+}
+
+/* .iconHeaderWL {
+  margin-right: 5px;
+  margin-left: 15px;
+} */
+
+.navheader {
+  padding: 12px 12px 12px 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Title  */
+.topList {
+  /* background-color: #e4e9fd; */
+  background-color: floralwhite;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 10px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  min-width: 400px;
+}
+
+.topHeader {
+  font-size: 2rem;
+}
+
+.todaysList {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #e4e9fd;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.item {
+  min-height: 70px;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+  /* background-color: #8800ff; */
+}
+
+.newListAdded {
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+input[type='checkbox'] {
+  margin: 20px;
+  margin-left: 20;
+}
+
+input[type='text'] {
+  text-align: center;
+  height: 60px;
+  top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+
+  /*  
+  width: calc(100% - 20px); /* Account for button width 
+  outline: none;
+  transition: border-color 0.2s ease;  Add hover effect 
+   */
+}
+
+button {
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: #8800ff;
+  color: #fff;
+  font-size: 30px;
+  border-width: 0;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+input:checked + p {
+  text-decoration: line-through;
+  text-decoration-color: #a683e3;
+}
+
+form.edit {
+  display: flex;
+}
+
+button.edit {
+  margin-left: 0px;
+  margin-right: 20px;
+  border: none;
+  background: none;
+}
+
+footer {
+  flex: 0 0 auto;
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+  margin-top: auto;
+  background-color: #9c60d1;
+  width: 100%;
+  height: 3em;
+  color: #fff;
+  box-shadow: 0 -2px 5px #9c60d1;
+
+  font-size: 1em;
+  line-height: 3em;
+
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2em;
+  position: fixed;
+  bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .topList {
+    background-color: floralwhite;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 0;
+    min-width: 300px !important;
+    min-height: 50px;
+  }
+
+  h1 {
+    width: 150px;
+    margin: 20px auto;
+  }
+
+  .topHeader {
+    text-align: center;
+    padding: 2px;
+    font-size: 0.9rem;
+  }
+
+  .todaysList {
+    max-width: 300px;
+    margin: 10px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+
+  .item {
+    min-height: 70px;
+    min-width: 295px;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .newListAdded {
+    margin: auto;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  form.newaddedItem {
+    margin-bottom: 70px;
+  }
+
+  input[type='text'] {
+    text-align: center;
+    height: 50px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 150px;
+  }
+
+  button {
+    min-height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #8800ff;
+    color: #fff;
+    font-size: 30px;
+    border-width: 0;
+    margin: 10px auto;
+    cursor: pointer;
+  }
+
+  footer {
+    flex: 0 0 auto;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    border-bottom: none;
+  }
+
+  .topList {
+    background-color: floralwhite;
+    border-radius: 10px;
+    margin: 10px auto;
+    padding: 0;
+    min-width: 200px !important;
+  }
+
+  h1 {
+    width: 100px;
+    margin: 10px auto;
+  }
+
+  .topHeader {
+    text-align: center;
+    padding: 2px;
+    font-size: small;
+  }
+
+  .todaysList {
+    max-width: 200px;
+    margin: 10px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  }
+
+  .item {
+    min-height: 70px;
+    min-width: 100px;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .newListAdded {
+    margin: auto;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  input[type='checkbox'] {
+    margin-left: 10px;
+  }
+
+  input[type='text'] {
+    text-align: center;
+    height: 50px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 200;
+    width: 150px;
+    margin-bottom: 30px;
+  }
+
+  button {
+    min-height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: #8800ff;
+    color: #fff;
+    font-size: 30px;
+    border-width: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    padding-right: 10px;
+  }
+
+  footer {
+    position: relative;
+    display: grid;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .text {
+    font-size: large;
+    font-weight: bolder;
+  }
+
+  form.newaddedItem {
+    margin: auto;
+  }
+}

@@ -1,0 +1,138 @@
+<%- include('partials/header.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <title>Daily's List</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- heading -->
+      <div class="topList" id="heading">
+        <h1 class="topHeader"><%= currentTitle %></h1>
+      </div>
+
+      <div class="todaysList">
+        <% if (locals.newListItems) { %> <% newListItems.forEach((item) => { %>
+        <div class="item">
+          <!-- Delete Form -->
+          <form action="/delete" method="post">
+            <input
+              type="checkbox"
+              name="checkbox"
+              value="<%= item._id %>"
+              class="checkBox"
+              onChange="this.form.submit()"
+            />
+            <input type="hidden" name="listName" value="<%= currentTitle %>" />
+          </form>
+
+          <p class="newListAdded" id="name<%=item._id%>"><%= item.name %></p>
+
+          <!-- Edit Form -->
+          <form class="edit" action="/edit" method="post">
+            <input
+              type="hidden"
+              name="customeListName"
+              value="<%= currentTitle %>"
+            />
+            <input type="hidden" name="updatedItemId" value="<%= item._id %>" />
+            <input
+              id="input<%=item._id%>"
+              type="text"
+              class="updatedItemTitle"
+              name="updatedItemTitle"
+              value="<%= item.name %>"
+              autocomplete="off"
+              autofocus="true"
+              hidden="true"
+            />
+            <button id="done<%=item._id%>" class="edit" type="submit" hidden>
+              <img class="icon" src="svgs/edit-done.svg" alt="tick image" />
+            </button>
+          </form>
+
+          <button
+            id="edit<%=item._id%>"
+            class="edit"
+            onclick="handler('<%=item._id%>')"
+          >
+            <img class="icon" src="svgs/edit-pencil.svg" alt="pencil image" />
+          </button>
+        </div>
+        <% }); %>
+
+        <!-- Add new Form -->
+        <form class="newaddedItem" action="/" method="post">
+          <input
+            type="text"
+            class="newInputItem"
+            name="newItem"
+            id="task-text"
+            placeholder="New Item"
+            autocomplete="off"
+            autofocus
+            required
+          />
+          <button
+            type="submit"
+            class="addItemButton"
+            name="list"
+            value="<%= currentTitle %>"
+          >
+            +
+          </button>
+        </form>
+        <%}%>
+      </div>
+
+      <!-- <div class="contact-box">
+        <img
+          class="contact-logo"
+          src="/imgs/Logo.jpg"
+          alt="computer screen with mug coffee and a mobile phone on a surface"
+        />
+      </div> -->
+
+      <script>
+        function handler(id) {
+          document.getElementById('name' + id).setAttribute('hidden', true);
+          document.getElementById('edit' + id).setAttribute('hidden', true);
+          document.getElementById('done' + id).removeAttribute('hidden');
+          document.getElementById('input' + id).removeAttribute('hidden');
+        }
+
+        //
+        const contactBox = document.querySelector('.contact-box');
+        const footer = document.querySelector('footer');
+        const showFooterBtn = document.getElementById('showFooter');
+
+        showFooterBtn.addEventListener('click', () => {
+          footer.classList.add('show');
+          contactBox.style.transform = 'translateY(-20px)'; // Apply transform directly
+        });
+      </script>
+
+      <footer>
+        <div class="text left">
+          Copyright © <%= new Date().getFullYear(); %>
+        </div>
+        <div class="text">
+          <a
+            href="mailto:contact.alzubi@gmail.com"
+            style="text-decoration: none"
+            class="middle"
+            >Contact Us
+          </a>
+        </div>
+        <div class="text right">Creative Solutions By Omar</div>
+      </footer>
+      <button id="showFooter" hidden>Show Footer</button>
+    </div>
+  </body>
+</html>
+
+<!-- < %- include('partials/footer.ejs') %> -->
